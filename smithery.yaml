@@ -1,0 +1,25 @@
+# Smithery.ai / Glama.ai / PulseMCP Auto-Discovery Manifest
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required: []
+    properties:
+      sheetpulseApiKey:
+        type: string
+        description: "Optional SheetPulse Pro/Team License Key (leave empty for Free Tier: Unlimited raw CSV/TSV extraction + 3 free AI Smart Currency/Number normalizations per day)."
+        default: ""
+      workEmail:
+        type: string
+        description: "Optional corporate email (@company.com) to unlock instant <$50 No-Approval $29/mo Team Expense Invoice & Slack pitch generation."
+        default: ""
+  commandFunction:
+    |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', '@sheetpulse/mcp-server'],
+      env: {
+        ...(config.sheetpulseApiKey ? { SHEETPULSE_API_KEY: config.sheetpulseApiKey } : {}),
+        ...(config.workEmail ? { SHEETPULSE_WORK_EMAIL: config.workEmail } : {})
+      }
+    })

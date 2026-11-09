@@ -1,0 +1,24 @@
+{
+  "name": "@sheetpulse/mcp-server",
+  "version": "1.1.0",
+  "description": "SheetPulse AI — Standard MCP Server for Claude Desktop, Cursor & Windsurf (1-Click Table Clean, Currency Normalize, CSV/TSV Export & B2B Team Licensing)",
+  "type": "commonjs",
+  "main": "index.js",
+  "bin": {
+    "sheetpulse-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test tests/mcp.test.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "google-sheets",
+    "csv",
+    "table-extractor",
+    "claude-desktop",
+    "cursor"
+  ],
+  "license": "MIT"
+}
